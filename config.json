@@ -8,5 +8,5 @@
     "data": "data/",
     "translations": "translations/",
     "translations_key": "prototype",
-    "build_path": ""
+    "build_path": "/"
 }
