@@ -4,7 +4,7 @@
     "version": "1.0.0",
     "copyright_holder": "Jon Sakas",
     "author": "Firstname Lastname <jon.sakas@gmail.com>",
-    "template_extensions": ["html", "txt", ""],
+    "template_extensions": ["html", "txt"],
     "data": "data/",
     "build_path": "https://jsakas.github.io/sakas.co/"
 }
