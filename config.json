@@ -1,12 +1,10 @@
 {
-    "name": "Protoype",
-    "description": "A static site.",
+    "name": "sakas.co",
+    "description": "The homepage of Jon Sakas",
     "version": "1.0.0",
-    "copyright_holder": "Fistname Lastname",
-    "author": "Firstname Lastname <first.last@domain.com>",
+    "copyright_holder": "Jon Sakas",
+    "author": "Firstname Lastname <jon.sakas@gmail.com>",
     "template_extensions": ["html", "txt", ""],
     "data": "data/",
-    "translations": "translations/",
-    "translations_key": "prototype",
-    "build_path": "/"
+    "build_path": "https://jsakas.github.io/sakas.co/"
 }
