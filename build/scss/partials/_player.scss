@@ -1,0 +1,46 @@
+.player {
+    width: 100%;
+    background: $color8;
+    padding: 5px;
+    display: none;
+    text-align: center;
+    .controls {
+        margin: 0 auto;
+        display: inline-block;
+        span {
+            font-size: 24px;
+            &:hover {
+                cursor: pointer;
+                &:before {
+                    color: $color9;
+                    @include transition(.3s);
+                }
+            }
+        }
+    }
+    [class^="icon-"],
+    [class*=" icon-"] {
+        width: 40px;
+        color: $color2;
+        @include transition(.3s);
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+.queue {
+    position:absolute;
+    background-color:#ffffff;
+    width:200px;
+    height:auto;
+    min-height:200px;
+    color:#000000;
+}
+
+#player-viz {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}

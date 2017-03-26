@@ -1,0 +1,65 @@
+.flex-grid-3 {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    transition: all .3s;
+}
+
+.item {
+    height: 200px;
+    flex: 1 1 31%;
+    max-width: 31%;
+    background: #ffffff;
+    box-sizing: border-box;
+    margin-bottom: 3%;
+    @media screen and (max-width: $screen-3) {
+        flex: 1 1 48%;
+        max-width: 48%;
+        margin-bottom: 4%;
+    }
+    @media screen and (max-width: $screen-2) {
+        flex: 1 1 100%;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+.experiment {
+    height: 200px;
+    background: url('../images/backgrounds/space2.jpg');
+    background-size: auto 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+    transition: all .3s;
+
+    &:hover {
+        background-size: auto 130%;
+        .title {
+            background-color: rgba($color8, .6);
+            color: $color1;
+        }
+    }
+
+    @media screen and (max-width: $screen-2) {
+        background-size: 100% auto;
+        &:hover {
+            background-size: 150% auto;
+        }
+    }
+
+    .title {
+        transition: all .3s;
+        position: absolute;
+        width: 100%;
+        box-sizing: border-box;
+        bottom: 0;
+        padding: 20px;
+        background-color: rgba($color1, .2);
+        color: $color2;
+        font-weight: 400;
+    }
+}

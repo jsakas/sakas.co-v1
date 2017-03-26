@@ -1,0 +1,69 @@
+.hero-wrapper {
+    position: relative;
+    overflow: hidden;
+    .hero {
+        height: 100vh;
+        position: relative;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+        box-shadow: inset 0px 0px 75px 0px rgba(255, 255, 255, 1);
+        overflow: hidden;
+        .greeting {
+            display: block;
+            font-weight: 100;
+            font-size: 100px;
+            color: $color1;
+            font-family: $font-primary;
+            margin: 10px auto;
+        }
+        .down-arrow {
+            display: block;
+            margin: 0 auto;
+            cursor: pointer;
+        }
+    }
+    .article-hero {
+        height: 500px;
+        box-shadow: none;
+        .title-wrapper {
+            width: 100%;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            h1 {
+                position: absolute;
+                bottom: 20px;
+                font-family: $font-primary;
+                font-weight: 500;
+                background-color: rgba(0, 0, 0, .5);
+                font-size: 35px;
+                padding: 20px;
+                display: block;
+                color: $color2;
+                max-width: 800px;
+                width: 100%;
+            }
+        }
+    }
+    .background {
+        background-color: #e0eff0;
+        display: block;
+        background-size: cover;
+        background-position: center bottom;
+        position: absolute;
+        top: 0;
+        z-index: -10;
+        width: 100%;
+        height: 150vh;
+    }
+    .background-home {
+        background-image: url('../images/main-bg.png');
+    }
+}
+

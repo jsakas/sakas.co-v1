@@ -1,0 +1,62 @@
+.footer {
+    @include print-style('background-color', $color1, $color10);
+    @media print {
+        display: none;
+    }
+    min-height: 300px;
+    .inner {
+        height: 100px;
+        margin: 0 auto;
+        max-width: 1020px;
+        width: 100%;
+        position: relative;
+        padding: 20px;
+        text-align: right;
+    }
+    .icon-github {
+        font-size: 50px;
+        text-decoration: none;
+        @include print-style('color', $color2, $color1);
+    }
+    .powered-by {
+        border-top-width: 1px;
+        border-top-style: solid;
+        @include print-style('border-top-color', $color2, $color1);
+        margin-top: 10px;
+        padding-top: 7px;
+        margin-left: auto;
+        width: 100%;
+        max-width: 200px;
+        text-align: right;
+        font-family: $font-primary;
+        font-weight: 200;
+        font-size: 12px;
+        @include print-style('color', $color2, $color1);
+        a {
+            @include print-style('color', $color2, $color1);
+        }
+        strong {
+            font-size: 18px;
+            font-weight: bold;
+            position: relative;
+            &::before {
+                mask-path: url('../svg/heart.svg') 100% 100%;
+                mask-size: 100% 100%;
+                -webkit-mask-image: url('../svg/heart.svg');
+                -webkit-mask-size: 100% 100%;
+                background-size: 100%;
+                width: 15px;
+                height: 13px;
+                content: '';
+                display: block;
+                position: absolute;
+                left: -20px;
+                top: 7px;
+                @include print-style('background-color',
+                $color2,
+                $color1);
+            }
+        }
+    }
+}
+

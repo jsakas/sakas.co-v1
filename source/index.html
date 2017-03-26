@@ -1,8 +1,47 @@
-{% extends "templates/base.html" %} {% block content %}
-<div class="intro">
-  <div class="intro-title">
-    <img src="{{ asset('/images/prototype-icon.svg') }}" class="icon" />
-    <h2>{{ data['sample.json']['description'] }}</h2>
-  </div>
+{% extends "templates/base.html" %} 
+
+{% block title %}sakas.co{% endblock %} \
+
+{% block hero %}
+
+<div class="hero-wrapper" id="skrollr-body">
+    <div class="hero">
+        <div class="greeting">
+            Hello!
+            <img src="{{ asset('/svg/down_arrow_stroke.svg') }}" class="down-arrow" />
+        </div>
+    </div>
+    <div class="background background-home"></div>
 </div>
+
+<section class="about">
+    <div class="inner">
+        <div class="intro">
+            <img src="{{ asset('/images/jon_pic_2.png') }}" alt="This is me." class="headshot" />
+            <ul class="who-is-jon">
+                <strong>I'm Jon</strong>
+                <li>Colorado Native</li>
+                <li>Web Developer</li>
+                <li>Digital Marketer</li>
+                <li>Music Creator</li>
+            </ul>
+        </div>
+
+        <p class="in-the-third">
+            Jon Sakas is a Web Developer, Digital Marketer, and Musician from Denver, CO, with a passion for technology and design. Currently on the team at <a href="http://www.beatport.com/" target="_blank">Beatport</a>, Jon works as a full-stack engineer while also working on the email marketing program. Previously Jon has worked for world-class agencies such as <a href="http://www.merkleinc.com/" target="_blank">Merkle</a> and <a href="http://www.degdigital.com/" target="_blank">DEG</a>. On the side, Jon is also an electronic music producer and former four year resident DJ at Beta Nightclub. He has released music on some of the industries most well-known labels such as Ultra and Black Hole Recordings, and collaborated with a hand-full of notable artists.
+        </p>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block main %}
+
+    <h1>Latest</h1>
+    <article class="article">
+        <span class="title"><a href="blog/2017/03/test-post.html">Test Post</a></span>
+        <span class="date">March 26th, 2017</span>
+        <span class="preview">Hey there, just testing out a post on my static blog site.</span>
+    </article>
+
 {% endblock %}

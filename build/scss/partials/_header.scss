@@ -1,0 +1,189 @@
+.header-wrap {
+    width: 100%;
+    z-index: 10;
+    position: fixed;
+    @include print {
+        position: relative !important;
+    }
+}
+
+.main-container {
+    // needs padding to offset header
+    .main-content {
+        margin-top: 75px;
+        @include tablet {
+            margin-top: 175px;
+        }
+        @include print {
+            margin-top: 15px !important;
+            transition: none !important;
+        }
+        // transition causes an issue with print style sheet
+        // http://stackoverflow.com/questions/34921096/screen-media-queries-overriding-print-rules-in-chrome
+        // @include transition(.3s);
+    }
+    // if hero wrapper is before main content, remove padding
+    .hero-wrapper + .main-content {
+        margin-top: 0;
+    }
+    // home page special rule
+    .about + .main-content {
+        margin-top: 0;
+    }
+}
+
+.header {
+    [class^="icon-"] {
+        color: #ffffff;
+    }
+    display: block;
+    position: relative;
+    align-items: baseline;
+    @include print-style('background-color', $color1, $color10);
+    border-bottom: 2px solid $color8;
+    vertical-align: bottom;
+    padding: 0 20px;
+    width: 100%;
+    .inner {
+        height: 100px;
+        margin: 0 auto;
+        padding: 0 50px;
+        width: 100%;
+        position: relative;
+        transition: all .3s;
+        @media screen and (max-width: $screen-3) {
+            height: 45px;
+        }
+    }
+}
+
+.logo-wrap {
+    z-index: 20;
+    position: absolute;
+    left: 35px;
+    bottom: 5px;
+    transition: left .3s;
+    display: inline-block;
+    @media print {
+        left: 0;
+    }
+}
+
+.logo {
+    &::before {
+        @include transition(.3s);
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        left: -35px;
+        bottom: 0;
+        display: block;
+        color: #ffffff;
+        background: url('../svg/star.svg');
+        content: '';
+        background-size: cover;
+        animation: infinite-spinning 30s infinite;
+        animation-timing-function: linear;
+    }
+    @media print {
+        display: none;
+    }
+}
+
+.name {
+    transition: left .3s;
+    font-size: 30px;
+    font-family: $font-primary;
+    font-weight: 500;
+    left: 0px;
+    position: relative;
+    bottom: 0px;
+    a {
+        text-decoration: none;
+        @include print-style('color',
+        $color2,
+        $color1);
+    }
+}
+
+.player-start {
+    position: absolute;
+    transition: all 2s;
+    left: 0;
+    top: 12px;
+    opacity: 0;
+    &.visible {
+        left: 135px;
+        opacity: 1;
+    }
+}
+
+.player-pause {
+    position: absolute;
+    transition: all .1s;
+    left: 0;
+    top: 12px;
+    opacity: 0;
+    &.visible {
+        left: 155px;
+        opacity: 1;
+    }
+}
+
+.fixed {
+    position: fixed;
+    top: 0;
+    .inner {
+        height: 45px;
+    }
+    @include tablet {
+        .logo-wrap {
+            transition: left .3s;
+        }
+        .logo {
+            &::before {
+                @include transition(.3s);
+                left: -60px;
+                bottom: -25px;
+                width: 60px;
+                height: 60px;
+            }
+        }
+        .name {
+            transition: left .3s;
+            left: 10px;
+        }
+        .player-start {
+            left: 145px;
+        }
+        .player-pause {
+            left: 165px;
+        }
+    }
+}
+
+@keyframes infinite-spinning {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.fade-in {
+    &:before {
+        animation: fade-in 3s infinite;
+        animation-timing-function: linear;
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+

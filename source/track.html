@@ -1,0 +1,29 @@
+{% extends "templates/base.html" %} 
+
+{% block title %}sakas.co{% endblock %} 
+
+{% block main %}
+
+<div id="track" data-src="/audio/reflections.mp3"></div>
+
+<article class="article full-article">
+    <h1>Reflections Track Post <span class="icon-play3" id="play-track"></span> </h1>
+            <span class="date">Posted April 20th, 2015</span>
+            <span class="body">
+            
+                <p>Today I launched a cool new feature on my site. It's&nbsp;an integration with Soundcloud that pulls tracks out of the API and puts them in blog posts. If you click play, there is a nice visualiser and start and stop button at the top of the page. From the user perspective it seems pretty simple, there are&nbsp;controls to play and stop, and a signal that shows them audio is playing (the visualiser). Behind the scenes, however, there are&nbsp;many different pieces of technology working together to. Some of the things that were necessary in order to create this feature were:</p>
+                <ul>
+                <li>Extend my custom Mezzanine CMS theme to allow new types of blog posts called track posts, which allow custom fields to be entered by the user</li>
+                <li>Create a backend Python integration with the Soundcloud API to retrieve track information and the streaming URL</li>
+                <li>Create a front end JavaScript application that uses the another library I'm working on,&nbsp;<a title="AudioJS" href="https://github.com/jsakas/audiojs">AudioJS</a>, to play and visualise the music using the awesome Web Audio API</li>
+                <li>Use pushState + Ajax&nbsp;(aka Pjax) to progressively enhance links on the page, which is how you can navigate the site and not interupt the music</li>
+                </ul>
+                <p>In the future I want to extent this functionality to create a queue syste, as well as more full featured controls like seek, previous and next. These are currently all being worked on in the AudioJS project, but have not been implemented on this site&nbsp;as of yet.&nbsp;</p>
+                <p>For my first music related post, I want to share a track I remixed a few years ago by Rudimental, called "Not Giving In". It's a great track and I had fun putting a little bit of a housey feel on it. You can download it for free from Soundcloud here:&nbsp;<a title="Rudimental - Not Giving In &quot;Jontron Remix&quot;" href="https://soundcloud.com/jontron/not-giving-in-remix">Rudimental - Not Giving In "Jontron Remix"</a>.</p>
+                <p>Enjoy!</p>
+                <p>-Jon</p>
+           
+            </span>
+        </article>
+
+{% endblock %}

@@ -1,30 +1,101 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta name="viewport" content="width=device-width" />
-  <link rel="icon" type="image/png" href="{{ asset('/images/prototype-icon.png') }}">
-  <title>{{ config.get('name', 'Prototype Project') }}</title>
-  <link rel="stylesheet" href="{{ asset('/css/base.css', True) }}" />
+    <link rel="stylesheet" href="{{ asset('/fonts/icomoon/style.css', True) }}" />
+    <link rel="stylesheet" href="{{ asset('/css/prism.css', True) }}" />
+    <link rel="stylesheet" href="{{ asset('/css/style.css', True) }}" />
+
+    <script src="{{ asset('/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('/js/jquery.pjax.js') }}"></script>
+    <script src="{{ asset('/js/prism.min.js') }}"></script>
+    <script src="{{ asset('/js/audiojs/source/WebAudio.js', True) }}"></script>
+    <script src="{{ asset('/js/audiojs/source/WebAudioViz.js', True) }}"></script>
+    <script src="{{ asset('/js/main.js', True) }}"></script>
+    
+    <link rel="shortcut icon" type="image/png" href="{{ asset('/images/favicon-192x192.png') }}" />
+    <link rel="icon" type="image/png" href="{{ asset('/images/favicon-192x192.png') }}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock %}</title>
 </head>
 
 <body>
-  {% block content %} {% endblock %}
-  <div class="palette-top">
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
-  <div class="palette-bottom">
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
+
+    <div class="header-wrap">
+
+        <header class="header">
+
+            <div class="inner">
+
+                <div class="logo-wrap" id="logo-wrap">
+
+                    <span class="logo star"></span>
+                    <span class="name"><a href="/">jon.sakas</a></span>
+
+                </div>
+
+                <nav class="nav" id="nav">
+
+                    <ul class="nav-links">
+<!--                         <li><a href="music.html">music</a></li>
+                        <li><a href="experiments.html">code</a></li>
+                        <li><a href="blog.html">blog</a></li> -->
+                    </ul>
+
+                    <ul class="nav-info">
+                        <li>jon.sakas@gmail.com</li>
+                        <li>720-939-7877</li>
+                    </ul>
+
+                </nav>
+                
+            </div>
+
+            <canvas class="player-viz" id="player-viz"></canvas>
+
+        </header>
+
+    </div>
+
+    <div class="main-container" id="main-container">
+
+        {% block hero %}
+
+        {% endblock %}
+
+        <section class="main-content">
+
+            <div class="inner">
+
+                {% block main %}
+
+                {% endblock %}
+
+            </div>
+
+        </section>
+
+    </div>
+
+    <footer class="footer">
+
+        <div class="inner">
+
+            <a href="https://github.com/jsakas" class="icon-github icon"></a>
+
+            <div class="powered-by">
+
+                <strong>powered by</strong>
+                <div>github</div>
+                <div>python / prototype</div>
+                <div>html5 / sass / javascript</div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
 </body>
 
 </html>
