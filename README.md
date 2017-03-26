@@ -1,8 +1,7 @@
 # sakas.co
-My personal website
 
-# Hosted on GitHub Pages
+My personal website.
 
-Deploy the site:
+Built with [Prototype](https://github.com/jsakas/prototype).
 
-    $ ./deploy.sh
+Hosted on GitHub Pages.
