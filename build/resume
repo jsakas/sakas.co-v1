@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="/fonts/icomoon/style.css" />
+    <link rel="stylesheet" href="/css/prism.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.pjax.js"></script>
+    <script src="/js/prism.min.js"></script>
+    <script src="/js/audiojs/source/WebAudio.js"></script>
+    <script src="/js/audiojs/source/WebAudioViz.js"></script>
+    <script src="/js/main.js"></script>
+    
+    <link rel="shortcut icon" type="image/png" href="/images/favicon-192x192.png" />
+    <link rel="icon" type="image/png" href="/images/favicon-192x192.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Music</title>
+</head>
+
+<body>
+
+    <div class="header-wrap">
+
+        <header class="header">
+
+            <div class="inner">
+
+                <div class="logo-wrap" id="logo-wrap">
+
+                    <span class="logo star"></span>
+                    <span class="name"><a href="/">jon.sakas</a></span>
+
+                </div>
+
+                <nav class="nav" id="nav">
+
+                    <ul class="nav-links">
+                        <li><a href="resume">resume</a></li>
+                    </ul>
+
+                    <ul class="nav-info">
+                        <li>jon.sakas@gmail.com</li>
+                        <li>720-939-7877</li>
+                    </ul>
+
+                </nav>
+                
+            </div>
+
+            <canvas class="player-viz" id="player-viz"></canvas>
+
+        </header>
+
+    </div>
+
+    <div class="main-container" id="main-container">
+
+        
+
+        
+
+        <section class="main-content">
+
+            <div class="inner">
+
+                
+<div class="resume">
+  <h1>About</h1>
+  <p>Charismatic, positive team leader and forward-thinking developer with marketing knowledge, a passion for the music industry, and professional DJ and production experience. </p>
+  <p>Balances a broad range of technical capabilities and insights with authentic consumer understanding and creative approaches to marketing problems. </p>
+  <p>Enjoys working in team environments while delivering strong and immediate results from personal efforts. Well-networked within the dance music industry and constantly on top of the latest discoveries, technologies, and methodologies.</p>
+  <h1>Professional Experience</h1>
+  <h2>Beatport</h2>
+  <p>Develops the full application stack which includes a data/API layer (PHP), a backend web application layer (Python/Flask) and a front-end JavaScript layer. Manages all technical aspects of email marketing which includes development, automation, platform and data. </p>
+  <h4>Software Engineer / Email Developer (Nov. 2014 - Present)</h4>
+  <h2>DEG</h2>
+  <p>Worked on a team of 6 creating front-end applications for web and email. All delivered products are responsive and mobile optimized. My main objective was to work with creative teams to produce content that is both user-friendly and forward thinking. We want to create the “wow factor”, while maximizing campaign success. </p>
+  <h4>UI Engineer (2014)</h4>
+  <ul>
+    <li>Collaborated with marketing managers to brainstorm impactful campaigns</li>
+    <li>Creatively matched marketing goals with appropriate technical plans</li>
+  </ul>
+  <h2>Merkle, Inc.</h2>
+  <p>Led a team of developers and worked alongside marketing managers to come up with and execute mobile optimized, device-driven marketing campaigns for some of the world’s best-known brands.</p>
+  <h4>Email Developer (2010 - 2014)</h4>
+  <ul>
+    <li>Technical lead for a team of 10 developers</li>
+    <li>Collaborated with marketing managers to brainstorm impactful campaigns</li>
+    <li>Creatively matched marketing goals with appropriate technical plans</li>
+    <li>Developed and maintained a proprietary web application for internal use</li>
+    <li>Current and past brands include: Samsung, Eddie Bauer, Royal Caribbean Cruises, DirecTV, Walt Disney Parks &amp; Resorts</li>
+  </ul>
+  <p> </p>
+  <h2>Beta Nightclub</h2>
+  <p>Mixes, produces and performs on-trend, dance music spanning many genres. Frequently performs in shows with internationally renowned artists and maintains a strong network within the global dance community.</p>
+  <h4>Resident DJ (2010 - 2014)</h4>
+  <ul>
+    <li>Performs mixes and original work 2-3 times monthly</li>
+    <li>Crafts two- to three-hour sets, covering many genres</li>
+    <li>Actively maintains daily knowledge of the most current music trends &amp; culture</li>
+  </ul>
+  <p> </p>
+  <h1>Technical Skills</h1>
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          <h3>Web Development, Graphic Design</h3>
+          <ul>
+            <li>HTML5 (web, email and mobile)</li>
+            <li>CSS / SASS</li>
+            <li>JavaScript / jQuery</li>
+            <li>TDD, CI/CD, GitHub, Agile</li>
+            <li>Adobe Creative Suite</li>
+          </ul>
+        </td>
+        <td>
+          <h3>Computer Programming, Database</h3>
+          <ul>
+            <li>Python / Django</li>
+            <li>PHP / Zend</li>
+            <li>SQL</li>
+            <li>Linux / Unix</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <h3>Marketing &amp; Analytics</h3>
+          <ul>
+            <li>Omniture</li>
+            <li>Google Analytics</li>
+            <li>ExactTarget / SFMC</li>
+            <li>Segment</li>
+            <li>Looker</li>
+            <li>CRM</li>
+            <li>Wordpress</li>
+          </ul>
+        </td>
+        <td>
+          <h3>Music Production, Live Performance</h3>
+          <ul>
+            <li>Ableton Live / Reason</li>
+            <li>NI Komplete / Traktor</li>
+            <li>Serato Scratch</li>
+            <li>Pioneer Pro DJ</li>
+            <li>Many other hardware and software tools</li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+            </div>
+
+        </section>
+
+    </div>
+
+    <footer class="footer">
+
+        <div class="inner">
+
+            <a href="https://github.com/jsakas" class="icon-github icon"></a>
+
+            <div class="powered-by">
+
+                <strong>powered by</strong>
+                <div>github</div>
+                <div>python / prototype</div>
+                <div>html5 / sass / javascript</div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>

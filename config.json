@@ -4,7 +4,7 @@
     "version": "1.0.0",
     "copyright_holder": "Fistname Lastname",
     "author": "Firstname Lastname <first.last@domain.com>",
-    "template_extensions": ["html", "txt"],
+    "template_extensions": ["html", "txt", ""],
     "data": "data/",
     "translations": "translations/",
     "translations_key": "prototype",
