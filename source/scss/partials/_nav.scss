@@ -6,6 +6,7 @@
     bottom: 5px;
     z-index: 30;
     ul {
+        &.nav-links,
         &.nav-info {
             display: none;
         }

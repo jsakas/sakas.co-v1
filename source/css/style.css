@@ -376,7 +376,7 @@ th, td {
     list-style-type: none;
     margin: 0;
     padding: 0; }
-    .nav ul.nav-info {
+    .nav ul.nav-links, .nav ul.nav-info {
       display: none; }
     .nav ul li {
       list-style-type: none;
