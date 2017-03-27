@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,700);
+@import url(https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,700|Roboto:300,400,500,700);
 table {
   width: 100%; }
 
@@ -167,6 +167,17 @@ th, td {
   100% {
     opacity: 1; } }
 
+.codepen-hero {
+  position: relative;
+  overflow: hidden;
+  height: 500px;
+  margin-top: 45px; }
+  .codepen-hero ~ .main-content {
+    margin-top: 50px; }
+
+@media screen and (min-width: 768px) {
+  .codepen-hero {
+    margin-top: 100px; } }
 .hero-wrapper {
   position: relative;
   overflow: hidden; }
@@ -335,7 +346,7 @@ th, td {
       color: white;
       list-style-type: none; }
   .about .in-the-third {
-    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin-top: 50px;
     text-align: center;
     font-weight: 100;
@@ -413,8 +424,7 @@ th, td {
 .article {
   max-width: 1000px;
   width: 100%;
-  margin: 20px auto 50px auto;
-  min-height: 100px; }
+  margin: 20px auto 50px auto; }
   .article .title {
     display: block; }
     .article .title a {
@@ -432,6 +442,7 @@ th, td {
     font-size: 14px;
     color: #1b212d; }
   .article .preview, .article p, .article li {
+    font-family: 'Roboto', sans-serif;
     font-weight: 300;
     font-size: 19px;
     line-height: 26px;
@@ -469,6 +480,13 @@ th, td {
     color: black;
     font-size: 19px;
     line-height: 26px; }
+
+.comments {
+  background-color: #d3d3d3; }
+  .comments .comments__inner {
+    padding: 50px 20px;
+    max-width: 1000px;
+    margin: 0 auto; }
 
 .panel {
   color: black; }
@@ -541,6 +559,10 @@ th, td {
 
 pre[class*="language-"] {
   border: 0;
+  margin-bottom: 40px;
+  font-size: 13px; }
+
+.pen {
   margin-bottom: 40px; }
 
 .player {
@@ -595,7 +617,8 @@ h1 {
   color: white; }
 
 h2 {
-  font-size: 24px; }
+  font-size: 24px;
+  margin-top: 50px; }
 
 body {
   margin: 0;
@@ -604,6 +627,12 @@ body {
   min-height: 100vh;
   flex-direction: column;
   background-color: #ededed; }
+
+code.inline {
+  background: #d3d3d3;
+  padding: 0 5px;
+  border-radius: 3px;
+  color: #b92935; }
 
 .main-container {
   flex: 1; }
@@ -630,6 +659,7 @@ body {
     margin-top: 30px;
     font-weight: 400;
     font-size: 36px;
+    line-height: 40px;
     color: black; }
 .main-content .resume {
   font-size: 16px;

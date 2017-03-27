@@ -1,0 +1,231 @@
+{% extends "templates/base.html" %} 
+
+{% block title %}sakas.co{% endblock %} 
+
+{% block hero %}
+
+<div class="codepen-hero">
+
+    <div class="codepen-hero__pen">
+        <p data-height="500" data-theme-id="28594" data-slug-hash="zZJOde" data-default-tab="result,js" data-user="jsakas" data-embed-version="2" data-pen-title="Eclipse Visualizer" class="codepen">See the Pen <a href="http://codepen.io/jsakas/pen/zZJOde/">Eclipse Visualizer</a> by Jon Sakas (<a href="http://codepen.io/jsakas">@jsakas</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+        <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block main %}
+
+    <article class="article full-article">
+        <h1>Building an eclipse style visualizer with AudioJS</h1>
+        <span class="date">Posted March 26th, 2017</span>
+        <span class="body">
+            <p>If you click play button above you will see an eclipse style visualizer. This post is going to walk through the steps to create it using <a href="{{ config.get('audiojs') }}" target="_blank">AudioJS</a>. We'll use Sass and Babel as our CSS and Javascript Preprocessors.</p> 
+
+            <h2>Step 1: Set up the base elements</h2>
+            <p>First, we need to set up a couple HTML elements and some basic CSS and JavaScript.</p>
+            <p>In the HTML &amp; CSS we create a single canvas element and give it some dimensions.</p>
+            <p>With the JavaScript, we've drawn a rectangle in the middle of the canvas to demonstrate some basic canvas drawing. We'll extend on this functionality later.</p>
+            <div class="pen">
+                <p data-height="265" data-theme-id="0" data-slug-hash="PpBvbb" data-default-tab="js,result" data-user="jsakas" data-embed-version="2" data-pen-title="Eclipse Visualizer (Step 1)" class="codepen">See the Pen <a href="http://codepen.io/jsakas/pen/PpBvbb/">Eclipse Visualizer (Step 1)</a> by Jon Sakas (<a href="http://codepen.io/jsakas">@jsakas</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+                <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>    
+            </div>
+
+            <h2>Step 2: Draw the start of our eclipse visualizer</h2>
+            <p>Next, we need to start writing our function that will be responsible for drawing the visualizer circle. Unlike the rectangle this is slightly more complex because we aren't just drawing a circle, but actually finding points around the radius of a circle and plotting them.</p>
+            <p>We'll write a function called <code class="inline">draw()</code> which handles this for us.</p>
+            <p>The function needs to loop through our integer <code class="inline">degrees</code>, and for every degree:</p>
+            <ul>
+                <li>Find the <code class="inline">x</code> value using <code class="inline">radius</code></li>
+                <li>Find the <code class="inline">y</code> value using <code class="inline">radius</code></li>
+                <li>Draw a line using <code class="inline">context.lineTo()</code>, similar to how we used <code class="inline">context.rect()</code> earlier.</li>
+            </ul>
+            <pre><code class="language-javascript">// some variables we will use to draw our circle
+var degrees=360;
+var radius=100;
+
+function draw() {
+  context.beginPath();
+  for (var d = 0; d < degrees; d++) {
+      
+      context.strokeStyle='#ffffff'
+      context.lineWidth=2;
+      context.lineCap="round";
+    
+      var x = (windowWidth/2) + radius * Math.cos(radians(d));
+      var y = (windowHeight/2) + radius * Math.sin(radians(d));
+      context.moveTo(x,y);
+      context.lineTo(x,y);
+      
+      // skip every other point to demonstrate this is a plot, not a single ellipse
+      d=d+1;
+  }
+  context.stroke();
+}</code></pre>
+<p>The JavaScript Math class works in radians only, so we also have to create a function to convert our degree value <code class="inline">d</code> into radians</p>
+<pre><code class="language-javascript">function radians(degrees) {
+  return (degrees * (Math.PI/180))
+}</code></pre>
+            <div class="pen">
+                <p data-height="265" data-theme-id="dark" data-slug-hash="RpBmyG" data-default-tab="js,result" data-user="jsakas" data-embed-version="2" data-pen-title="Eclipse Visualizer (Step 2)" class="codepen">See the Pen <a href="http://codepen.io/jsakas/pen/RpBmyG/">Eclipse Visualizer (Step 2)</a> by Jon Sakas (<a href="http://codepen.io/jsakas">@jsakas</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+                <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+            </div>
+
+            <p>At this stage each line looks like a single point, because the start and end coordinates are the same. Eventually these will be handled by data provided by AudioJS, but for now we will use <code class="inline">Math.random()</code> to give us some mock values. This is to demonstrate our function for drawing lines ourward is working correctly.</p>
+<pre><code class="language-javascript">// some variables we will use to draw our circle
+var degrees=360;
+var radius=100;
+
+function draw() {
+  context.beginPath();
+  for (var d = 0; d < degrees; d++) {
+      
+      context.strokeStyle='#ffffff'
+      context.lineWidth=2;
+      context.lineCap="round";
+      
+      // start coordinates
+      var x = (windowWidth/2) + radius * Math.cos(radians(d));
+      var y = (windowHeight/2) + radius * Math.sin(radians(d));
+      context.moveTo(x,y);
+    
+      // end coordinates
+      // get a random value between 0 and 100
+      var length = Math.random() * 100;
+      var x = (windowWidth/2) + (radius + length) * Math.cos(radians(d));
+      var y = (windowHeight/2) + (radius + length) * Math.sin(radians(d));
+      context.lineTo(x,y);
+      
+      // skip every other point to demonstrate this is a plot, not a single ellipse
+      d=d+1;
+  }
+  context.stroke();
+}</code></pre>
+
+            <div class="pen">
+                <p data-height="265" data-theme-id="dark" data-slug-hash="qryGJd" data-default-tab="js,result" data-user="jsakas" data-embed-version="2" data-pen-title="Eclipse Visualizer (Step 3)" class="codepen">See the Pen <a href="http://codepen.io/jsakas/pen/qryGJd/">Eclipse Visualizer (Step 3)</a> by Jon Sakas (<a href="http://codepen.io/jsakas">@jsakas</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+                <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+            </div>
+
+            <h2>Step 3: Add audio playback</h2>
+            <p>Next we need to drop in the AudioJS library and add some audio playback. You can download the distribution files from <a href="{{ config.get('audiojs') }}">{{ config.get('audiojs') }}</a>. You'll need to add both <code class="inline">WebAudio.js</code> and <code class="inline">WebAudioViz.js</code> to your project.</p>
+            <p>Once they are added, we can initialize them like this:</p>
+<pre><code class="language-javascript">// add AudioJS
+var audio = new WebAudio();
+var visualizer = new WebAudioViz(audio, canvas, draw).start();
+</code></pre>
+            <p>The base <code class="inline">WebAudio</code> class doesn't take any arguments in its constructor. However, the <code class="inline">WebAudioViz</code> class is slightly more complex. It needs an instance of <code class="inline">WebAudio</code>, a <code class="inline">canvas</code> element, and a <code class="inline">draw</code> function. The draw function receives a single argument, which is an array of data points which represent the spectrum analysis of each audio frame. Internall, the visualizer class will call the draw function over and over again as the audio plays, using <code class="inline">requestAnimationFrame</code>. If you aren't familiar, <a href="https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame">requestAnimationFrame</a> is definitely something worth checking out if you want to do any kind of animation with JavaScript.</p>
+            <p>Now that we have our external libraries imported and initialized, we need to supply some audio to play back. AudioJS makes this extremely simple, we just need an audio file to playback. Because I work for Beatport, I am just going to grab a LOFI mp3 off our site and use that, but you can pull one from anywhere. <br /><strong>https://geo-samples.beatport.com/lofi/6639961.LOFI.mp3</strong></p>
+<pre><code class="language-javascript">// add a track to the AudioJS queue
+audio.addQueue({'file': 'https://geo-samples.beatport.com/lofi/6639961.LOFI.mp3'});
+</code></pre>
+
+            <p>We're going to need some buttons to control playing and pausing of the audio, we'll drop in some SVG's and a couple more lines of CSS. Once we have our buttons in the DOM, we can use the AudioJS interface to quickly add some play and pause functionality to them. In a larger web app, this code would likely be written in a more extendable way. But for a simple single track audio player this will do fine.</p>
+<pre><code class="language-javascript">// get our play and pause buttons from the DOM
+var play = document.getElementById('play');
+var pause = document.getElementById('pause');
+
+// add event listeners to the buttons
+play.addEventListener('click', function() {
+   audio.start();
+   play.classList.toggle('visible');
+   pause.classList.toggle('visible');
+});
+
+pause.addEventListener('click', function() {
+   audio.stop();
+   play.classList.toggle('visible');
+   pause.classList.toggle('visible');
+});</code></pre>
+            <p>Cool, so now when we click the play button we can hear audio and see the <code class="inline">draw</code> function gets called in a loop. But what is going on with these crazy lines? It looks more like TV static than an audio visualizer.
+            <div class="pen">
+                <p data-height="265" data-theme-id="dark" data-slug-hash="PpBrNR" data-default-tab="js,result" data-user="jsakas" data-embed-version="2" data-pen-title="Eclipse Visualizer (Step 4)" class="codepen">See the Pen <a href="http://codepen.io/jsakas/pen/PpBrNR/">Eclipse Visualizer (Step 4)</a> by Jon Sakas (<a href="http://codepen.io/jsakas">@jsakas</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+                <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+            </div>
+
+            <h2>Step 5: Calculate the line heights based on the analyser's frequency data</h2>
+            <p>The final step is to dive deeper into our draw function. This is where we really get to have fun and play with different numbers to acheive wildly different results. As mentioned earlier, the draw function receives a single argument from the visualizer class, which is an array of frequency data. As a test, you could implement the draw function with a single log which will output the data. This will give you a good idea of what kind of numbers you're working with. For example:</p>
+<pre><code class="language-javascript">function draw(freqData = []) {
+    console.log(freqData);
+}</code></pre>           
+            <p>Which would give you output similar to the following:</p>
+<pre><code class="language-javascript">[166, 168, 189, 214, 216, 193, 163, 152, 158, 169, 142, 138, 150, 138, 145, 159, 143, 142, 130, 119, 113, 123, 133, 126, 123, 159, 171, 153, 127, 129, 90, 112, 105, 86, 108, 115, 96, 85, 79, 82, 89, 94, 94, 113, 108, 90, 85, 81, 70, 92, 83, 101, 105, 78, 86, 90, 98, 101, 100, 98, 100, 94, 99, 103, 100, 102, 106, 102, 107, 111, 105, 96, 104, 99, 89, 96, 92, 94, 103, 99, 90, 89, 100, 86, 73, 87, 86, 65, 82, 74, 63, 83, 72, 40, 53, 64, 76, 55, 79, 84…]</code></pre>
+            <p>All we need to do now is calculate the <code class="inline">length</code> variable based on the value of one of the bands in the frequency data. Earlier we generated this as a random number between 0 and 100, so lets take another look at that. We need to replace this:</p>
+<pre><code class="language-javascript">var length = Math.random() * 100;</code></pre>
+            <p>With something more along the lines of:</p>
+<pre><code class="language-javascript">length = freqData[d];</code></pre>
+            <p>And just like that, we are visualizing the audio in a fun way! The exact procedure I ended up with is slightly different, outlined below:</p>
+<pre><code class="language-javascript">// create a copy of d
+var i = d;
+
+// for a nice eclipse effect, we go up half way and then reverse our position in the frequency data. this creates a mirror effect (comment out to see how)
+if (d > 179) {
+    i = (d - 179);
+}
+
+// to get a good mix of lows and mids, start 20 items up from the bottom (or current location)
+var data = freqData[i + 20];
+
+// reduce the value, then increase it exponentially. lower frequencies tend to read much higher so this helps normalize them.
+var data = data * .01;
+var data = Math.pow(data, 5.5);
+
+// make it a whole number
+length = Math.floor(data);
+
+// or as a one liner...
+// length = Math.floor(Math.pow((freqData[(i+20)] * .01), 5.5));</code></pre> 
+            <p>And the result will be:</p>
+            <div class="pen">
+                <p data-height="265" data-theme-id="dark" data-slug-hash="PpBMBw" data-default-tab="js,result" data-user="jsakas" data-embed-version="2" data-pen-title="Eclipse Visualizer (Step 5)" class="codepen">See the Pen <a href="http://codepen.io/jsakas/pen/PpBMBw/">Eclipse Visualizer (Step 5)</a> by Jon Sakas (<a href="http://codepen.io/jsakas">@jsakas</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+                <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+            </div>
+            <p>I encourage you to play around with the mathms we just went over and try out a bunch of different things. You'll quickly realize how the possibilities are truly endless!</p>
+
+            <h2>Step 6: Some final touches</h2>
+            <p>Just for fun, we'll add a couple more finishing touches onto our visualizer. Instead of just being plain white, we'll introduce a new function <code class="inline">getRandomColor()</code> and use that when we set the stroke of the line. Then, we can use a little bit of CSS animation to make the circle spin slowly.</p>
+            <p>When it comes to spinning the animation, this could also just be implemented in JavaScript. Having a spinning element on the page could cause issues when there is more than just a single canvas on the screen. But for fun, this will do fine.</p>
+            <pre><code class="language-css">.visualizer {
+    ...
+    animation-name: viz;
+    animation-duration: 30s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes viz {
+    from {
+      transform: rotate(0deg);
+    }
+    from {
+      transform: rotate(360deg);  
+    }
+}</code></pre>
+            <p>For our random colors, we'll use a simple function to generate a HEX code for us on every call of the draw function</p>
+<pre><code class="language-javascript">function draw(freqData = []) {
+    ...
+    context.strokeStyle=getRandomColor();
+    ...
+}
+
+function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++ ) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}</code></pre>
+            <div class="pen">
+                <p data-height="265" data-theme-id="dark" data-slug-hash="NpLKdv" data-default-tab="js,result" data-user="jsakas" data-embed-version="2" data-pen-title="Eclipse Visualizer (Step 6 - Final)" class="codepen">See the Pen <a href="http://codepen.io/jsakas/pen/NpLKdv/">Eclipse Visualizer (Step 6 - Final)</a> by Jon Sakas (<a href="http://codepen.io/jsakas">@jsakas</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+                <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+            </div>
+            <p>And that's it! Hope you found this useful or interesting... if you have any questions or comments, hit me up on twitter <a href="http://twitter.com/jontr0n">@jontr0n</a>.</p>
+        </span>
+    </article>
+
+{% endblock %}
+
+{% block comments %}
+    {% include 'includes/disqus.html' %}
+{% endblock %}

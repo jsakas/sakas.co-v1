@@ -6,5 +6,6 @@
     "author": "Firstname Lastname <jon.sakas@gmail.com>",
     "template_extensions": ["html", "txt"],
     "data": "data/",
-    "build_path": "https://jsakas.github.io/sakas.co/"
+    "build_path": "https://jsakas.github.io/sakas.co/",
+    "audiojs": "https://github.com/jsakas/audiojs"
 }

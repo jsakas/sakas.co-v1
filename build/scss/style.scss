@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,700);
+@import url(https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,700|Roboto:300,400,500,700);
 @import "partials/_variables";
 @import "partials/_mixins";
 @import "partials/_reset";
@@ -8,6 +8,7 @@
 @import "partials/_homepage";
 @import "partials/_nav";
 @import "partials/_articles";
+@import "partials/_comments";
 @import "partials/_panels";
 @import "partials/_flexbox";
 @import "partials/_prism";
@@ -31,6 +32,7 @@ h1 {
 
 h2 {
     font-size: 24px;
+    margin-top: 50px;
 }
 
 body {
@@ -40,6 +42,13 @@ body {
     min-height: 100vh;
     flex-direction: column;
     background-color: $color10;
+}
+
+code.inline {
+    background: darken($color10, 10%);
+    padding: 0 5px;
+    border-radius: 3px;
+    color: darken($color5, 5%);
 }
 
 .main-container {
@@ -70,6 +79,7 @@ body {
             margin-top: 30px;
             font-weight: 400;
             font-size: 36px;
+            line-height: 40px;
             color: $color1;
         }
     }
@@ -77,8 +87,6 @@ body {
         font-size: 16px;
         line-height: 24px;
     }
-
-
 }
 
 .about-me {

@@ -1,0 +1,10 @@
+.comments {
+    background-color: darken($color10, 10%);
+
+    .comments__inner {
+        padding: 50px 20px;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+}
+

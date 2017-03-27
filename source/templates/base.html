@@ -8,7 +8,7 @@
 
     <script src="{{ asset('/js/jquery.min.js') }}"></script>
     <script src="{{ asset('/js/jquery.pjax.js') }}"></script>
-    <script src="{{ asset('/js/prism.min.js') }}"></script>
+    <script src="{{ asset('/js/prism.js') }}"></script>
     <script src="{{ asset('/js/audiojs/source/WebAudio.js', True) }}"></script>
     <script src="{{ asset('/js/audiojs/source/WebAudioViz.js', True) }}"></script>
     <script src="{{ asset('/js/main.js', True) }}"></script>
@@ -72,6 +72,10 @@
             </div>
 
         </section>
+
+        {% block comments %}
+
+        {% endblock %}
 
     </div>
 
