@@ -1,0 +1,21 @@
+table {
+    width: 100%;
+}
+
+th,
+td {
+    vertical-align: top;
+    display: block;
+    @include tablet {
+        display: table-cell;
+    }
+}
+
+// stops text from being cut in half on page break in print view
+@media print {
+    p, tr {
+        display: inline;
+        page-break-inside: avoid;
+    }
+}
+

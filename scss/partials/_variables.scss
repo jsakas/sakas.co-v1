@@ -1,0 +1,29 @@
+// The color palette
+$color1:#000000;
+$color2:#ffffff;
+
+$color3:#1b212d; // darkest blue
+$color4:#253242; // dark blue
+
+$color5:#ce2e3a; // dark red
+$color6:#eb355d; // pink
+$color7:#f56588; // light pink
+
+$color8:#3eb8bd; // green
+$color9:#a1ced4; // light green
+
+$color10:#ededed; // light grey
+
+// fonts
+$font-primary: 'Raleway', sans-serif;
+$font-secondary: 'Roboto', sans-serif; 
+
+
+$mobile-width: 320px;
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+$screen-1: $mobile-width;
+$screen-2: 480px;
+$screen-3: $tablet-width;
+$screen-4: $desktop-width;

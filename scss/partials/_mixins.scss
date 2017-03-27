@@ -1,0 +1,41 @@
+@mixin print-style($prop, $default, $print) {
+    #{$prop}: $default;
+    @media print {
+        #{$prop}: $print;
+    }
+}
+
+@mixin print {
+    @media print {
+        @content;
+    }
+}
+
+@mixin screen {
+    @media only screen {
+        @content;
+    }
+}
+
+@mixin mobile-only {
+    @media screen and (max-width: #{$tablet-width}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media screen and (min-width: #{$tablet-width}) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media screen and (min-width: #{$desktop-width}) {
+        @content;
+    }
+}
+
+@mixin transition($time) {
+    transition: all $time;
+}
+
