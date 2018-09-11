@@ -35,6 +35,10 @@ h2 {
     margin-top: 30px;
 }
 
+.no-page-break {
+    page-break-inside: avoid;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -53,6 +57,12 @@ code.inline {
 
 .main-container {
     flex: 1;
+}
+
+.print-section {
+    @media print {
+        page-break-after: always;
+    }
 }
 
 .main-content {
