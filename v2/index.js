@@ -1,1 +1,1 @@
-console.log('heyo');
+module.exports = require('./src/App');
